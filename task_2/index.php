@@ -1,30 +1,17 @@
 <?php
-$wish = ["счастья", "здоровья", "терпения", "воображения"];
-$epithet = [" крепкого", " бесконечного", " большого", " огромного", " великого"];
 
-$name = readline('Введите имя именинника!!!');
+(int)$arrayNumber = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
 
-$new_wish = [];
-$new_epithet = [];
-
-$combination_words = [];
-$quantity = 2;
-
-for ($i = 0; $i = count($wish); $i++) {
-    $rand_wish = array_rand($wish);
-    $new_wish[] = $wish[$rand_wish];
-    unset($wish[$rand_wish]);
+function sortArray(array $arrayNumber): array
+{
+    $min = min($arrayNumber) . PHP_EOL;
+    $max = max($arrayNumber) . PHP_EOL;
+    $average = round(array_sum($arrayNumber) / count($arrayNumber),1);
+    return [
+        "Минимальное значение массива" => $min,
+        "Максимальное значение массива" => $max,
+        "среднее арифметическое всех чисел массива" => $average
+    ];
 }
 
-for ($i = 0; $i = count($epithet); $i++) {
-    $rand_epithet = array_rand($epithet);
-    $new_epithet[] = $epithet[$rand_epithet];
-    unset($epithet[$rand_epithet]);
-}
-
-for ($i = 0; $i < $quantity; $i++) {
-    $combination_words[$i] = "$new_epithet[$i] $new_wish[$i]";
-}
-
-echo 'Дорогой ' . $name . ', от всего сердца поздравляю тебя с днем рождения, желаю ' .
-    implode(',', $combination_words) . " и$new_epithet[2] $new_wish[2]";
+print_r(sortArray($arrayNumber));
