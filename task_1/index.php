@@ -1,14 +1,10 @@
 <?php
-$arrayNumber = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+require_once 'Task.php';
+require_once 'User.php';
 
-$parityCheck = array_map(function (int $number): string {
-    if ($number % 2 == 0) {
-        $arrayText = "$number четное\n";
-    } else {
-        $arrayText = "$number не четное\n";
-    }
+$user = new User('Сергей', 'sergey@yandex.ru', 35);
+$task = new Task($user);
 
-    return $arrayText;
-}, $arrayNumber);
-
-print_r($parityCheck);
+$task->setDescription("Спать");
+$task->markAsDone();
+var_dump($task);
