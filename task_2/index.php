@@ -2,14 +2,15 @@
 require_once "User.php";
 require_once "Task.php";
 require_once "Comment.php";
+require_once "TaskService.php";
 
 $user = new User('Сергей', 'sergey@yandex.ru', 35);
-$task = new Task($user->gerUserName());
-$comment = new Comment($user,$task,'Коментарий');
+$task = new Task($user);
+$comment = new Comment($user,$task,'Коментарий мой');
 
-//$taskService = new TaskService();
-TaskService::addComment($user,$task,"Коментарий");
+TaskService::addComment($task,$comment);
 
 $task->setDescription("Спать");
 $task->markAsDone();
-var_dump($comment);
+print_r($task);
+//var_dump($comment);

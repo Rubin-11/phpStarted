@@ -17,13 +17,13 @@ class Task
         $this->dateCreated = new DateTime();
     }
 
-    public function getComments(): array
+    public function getTaskComments(): array
     {
         return $this->comments;
     }
-    public function setComments(string $comments, User $user): void
+    public function setTaskComments(array $comments): void
     {
-        $this->comments[$user] = [$comments];
+        $this->comments= $comments;
     }
 
     function getUser(): object {
