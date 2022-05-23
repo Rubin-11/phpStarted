@@ -2,12 +2,12 @@
 
 class Comment
 {
-    private User $user;
+    private User $author ;
     private Task $task;
     private string $text;
 
     function __construct(User $user, Task $task, string $text) {
-        $this->user = $user;
+        $this->author  = $user;
         $this->task = $task;
         $this->text = $text;
     }
