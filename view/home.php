@@ -6,7 +6,7 @@
 <h1><?= $pageHeader ?></h1>
 <?php if ($userName !== null) : ?>
 	<p>Рады вас приветствовать, "<?= $userName ?>"</p>
-	<a href="?action=logout">Выйти</a>
+	<a href="?controller=logout">Выйти</a>
 <?php else: ?>
 	<a href="?controller=security">Войти</a>
 <?php endif; ?>
