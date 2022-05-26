@@ -1,4 +1,5 @@
 <?php
+require_once 'model/User.php';
 session_start();
 $controller = $_GET['controller'] ?? 'home';
 $routes = require 'routes.php';

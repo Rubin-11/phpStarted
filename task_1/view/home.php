@@ -8,9 +8,6 @@
 	<p>Рады вас приветствовать, "<?= $userName ?>"</p>
 	<a href="?action=logout">Выйти</a>
 <?php else: ?>
-	<form method="post">
-		<input type="text" name="username" placeholder="Введите ваше имя"/>
-		<input type="submit" value="Отправить"/>
-	</form>
+	<a href="?controller=security">Войти</a>
 <?php endif; ?>
 </body>
