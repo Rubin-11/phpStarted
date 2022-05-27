@@ -1,13 +1,29 @@
 <?php
-
+require_once 'model/Task.php';
 class TaskProvider
 {
+	private array $tasks;
 
-    function getUndoneList() {
-        return;
-    }
+	public function __construct()
+	{
+		$this->tasks = $_SESSION['tasks'] ?? [];
+	}
 
-    function addTask () {
 
-    }
+	public function getUndoneList(): array
+	{
+		$tasks = [];
+		foreach ($this->tasks as $task) {
+			if (!$task->isDont()) {
+				$tasks[] = $task;
+			}
+		}
+		return $tasks;
+	}
+
+	public function addTask(Task $task): void
+	{
+		$_SESSION['tasks'][] = $task;
+		$this->tasks[] = $task;
+	}
 }
