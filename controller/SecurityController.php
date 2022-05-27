@@ -20,8 +20,4 @@ if (isset($_POST['username'], $_POST['password'])) {
 	}
 }
 
-//if (isset($_SESSION['username'])) {
-//	header('Location: /');
-//}
-
 require_once 'view/signin.php';
