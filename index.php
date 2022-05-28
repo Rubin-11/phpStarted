@@ -1,6 +1,9 @@
 <?php
-//require_once 'model/User.php';
-//session_start();
+//$password = '123';
+//$hashedPassword = md5($password);
+//var_dump($hashedPassword);
+//die;
+
 $controller = $_GET['controller'] ?? 'home';
 $routes = require 'routes.php';
 
