@@ -2,28 +2,37 @@
 require_once 'model/Task.php';
 class TaskProvider
 {
-	private array $tasks;
-
-	public function __construct()
+	private PDO $pdo;
+	public function __construct(PDO $pdo)
 	{
-		$this->tasks = $_SESSION['tasks'] ?? [];
+		$this->pdo = $pdo;
 	}
 
-
-	public function getUndoneList(): array
+	public function getUndoneList(): ?array
 	{
-		$tasks = [];
-		foreach ($this->tasks as $task) {
-			if (!$task->isDont()) {
-				$tasks[] = $task;
-			}
+		$statement = $this->pdo->query(
+			'SELECT * FROM tasks WHERE description LIKE "%%"'
+		);
+
+		$i = 0;
+		$task = [];
+
+		while ($descriptionTask = $statement->fetch()) {
+			$task[$i] = $descriptionTask['description'];
+			$i++;
 		}
-		return $tasks;
+
+		return $task ?: null;
 	}
 
-	public function addTask(Task $task): void
+	public function addTask(Task $task): bool
 	{
-		$_SESSION['tasks'][] = $task;
-		$this->tasks[] = $task;
+		$statement = $this->pdo->prepare(
+			'INSERT INTO tasks (description, isDone) VALUES (:description, :isDone)'
+		);
+		return $statement->execute([
+			'description' => $task->getDescription(),
+			'isDone' => $task->isDont()
+		]);
 	}
 }

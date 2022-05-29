@@ -11,6 +11,12 @@ username VARCHAR(100) NOT NULL,
 password VARCHAR(100) NOT NULL
 )');
 
+$pdo->exec('CREATE TABLE tasks (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+description VARCHAR(150),
+isDone TINYINT
+)');
+
 $user = new User('admin');
 $user->setName('главный админ');
 

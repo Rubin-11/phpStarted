@@ -18,7 +18,7 @@
 	</form>
 	<ol>
 		<?php foreach ($tasks as $task): ?>
-			<li><?= $task->getDescription() ?> [false]</li>
+			<li><?= $task?> [false]</li>
 		<?php endforeach; ?>
 	</ol>
 </div>
