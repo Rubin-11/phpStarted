@@ -1,5 +1,5 @@
 <?php
-require_once 'model/User.php';
+
 session_start();
 $pageHeader = 'Добро пожаловать';
 $userName = null;
