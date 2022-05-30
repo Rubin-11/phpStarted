@@ -18,6 +18,7 @@ if (isset($_POST['username'], $_POST['password'])) {
 	} else {
 		$_SESSION['username'] = $user;
 		header('Location: /');
+		die();
 	}
 }
 

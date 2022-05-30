@@ -6,9 +6,11 @@
 <h1><?= $pageHeader ?></h1>
 <?php if ($userName !== null) : ?>
 	<p>Рады вас приветствовать, "<?= $userName ?>"</p>
-	<a href="?controller=security">Выйти</a>
-	<a href="?controller=tasks">Задачи</a>
+	<menu>
+	<li><a href="?controller=security">Выйти</a></li>
+	<li><a href="?controller=tasks">Задачи</a></li>
 <?php else: ?>
-	<a href="?controller=security">Войти</a>
+	<li><a href="?controller=security">Войти</a></li>
+	</menu>
 <?php endif; ?>
 </body>

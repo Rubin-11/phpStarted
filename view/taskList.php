@@ -9,8 +9,8 @@
 <div>
 	<h2>Список задач</h2>
 	<menu>
-		<a href="?controller=security">Выйти</a>
-		<a href="/">Главная</a>
+		<li><a href="?controller=security">Выйти</a></li>
+		<li><a href="/">Главная</a></li>
 	</menu>
 	<form action="/?controller=tasks&action=add" method="post">
 		<input type="text" name="task" placeholder="Добавьте задачу">
@@ -24,3 +24,5 @@
 </div>
 </body>
 </html>
+
+
